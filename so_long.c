@@ -6,7 +6,8 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
-	void	*player_img;
+	void	*img;
+	void	*img_addr;
 
 } t_player;
 
@@ -30,6 +31,7 @@ int	main(int argc, char *argv[])
 {
 	void *mlx;
 	t_window window;
+	t_player player;
 
 	check_params(argc, argv);
 
@@ -39,8 +41,14 @@ int	main(int argc, char *argv[])
 	window.title = "so_long";
 	window.ptr = mlx_new_window(mlx, window.width, window.height, window.title);
 
-	// Create and print image (player)
+	// Create Player "object"
+	player.x = 64;
+	player.y = 64;
+	player.img_addr = mlx_new_image(mlx, 64, 64);
+	player.img = mlx_xpm_file_to_image(mlx, "./Assets/knight_idle_anim_f0.xpm", &player.x, &player.y);
+
+	mlx_put_image_to_window(mlx, window.ptr, player.img, 0, 0);
 
 	mlx_loop(mlx);
-    return 0;
+	return 0;
 }
