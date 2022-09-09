@@ -16,14 +16,14 @@ LIBFT_PATH = ./src/libft
 MLX_PATH = ./src/minilibx
 
 LIBFT = $(LIBFT_PATH)/libft.a
-MLX = $(MLX_PATH)/libmlx.a
+MLX = $(MLX_PATH)/libmlx_Linux.a
 
 SRCS		+= so_long.c
 
 
-CC =		cc
+CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
-MLX_FLAGS =	-L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS =	-L$(MLX) -lXext -lX11
 
 all:		$(NAME)
 
