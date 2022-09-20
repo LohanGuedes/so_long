@@ -13,7 +13,7 @@
 
 # define ERR_MSG_WRONG_NUM_ARG "So_long \033[31mERROR\e[0m: Wrong number of arguments\n"
 # define USAGE_MSG_EXEC "\033[32mUsage: ./so_long <path_to_map>.ber\e[0m\n"
-# define ERR_MSG_FILE "So_long \033[31mERROR\e[0m: wrong file extension. EXPECTED: .ber"
+# define ERR_MSG_FILE "So_long \033[31mERROR\e[0m: wrong file extension. EXPECTED: .ber\n"
 
 /*
 ** DEF ASSETS
@@ -32,6 +32,10 @@ enum key_pressed{
 	A_down = 115,
 	A_right = 100,
 };
+
+/*
+** Game Structs (Needed because of poorly coded minilibx).
+**/
 
 typedef struct s_window
 {
@@ -85,5 +89,15 @@ typedef struct s_data
 	t_coin				coin;
 	t_map_assets	map_assets;
 } t_data;
+
+/*
+** Utility functions
+**/
+int	check_file_extension(char *filename, char *extension);
+int	movement_parser(int keycode, t_data *data);
+void	check_params(int argc, char *argv[]);
+void	gen_player(t_data *data, char *image_path);
+void	gen_window(t_data *data, int width, int height, char *title);
+void	gen_grid(t_data *data, char *file_path);
 
 #endif

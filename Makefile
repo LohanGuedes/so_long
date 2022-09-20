@@ -18,7 +18,8 @@ MLX_PATH = ./src/minilibx
 LIBFT = $(LIBFT_PATH)/libft.a
 MLX = $(MLX_PATH)/libmlx_Linux.a
 
-SRCS		+= so_long.c
+SRCS		+= so_long.c check_params.c  gen_player.c  movement_parser.c
+SRCS		+= gen_grid.c gen_window.c check_file_extension.c
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
