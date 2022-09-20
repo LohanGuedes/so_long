@@ -20,10 +20,17 @@ MLX = $(MLX_PATH)/libmlx_Linux.a
 
 SRCS		+= so_long.c
 
-
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
+
+
+# A way to make it work on both linux and macos (I hope so.)
+OS = $(shell uname)
+ifeq ($(OS), Linux)
 MLX_FLAGS =	-L$(MLX) -lXext -lX11
+else
+MLX_FLAGS =	-L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
+endif
 
 all:		$(NAME)
 

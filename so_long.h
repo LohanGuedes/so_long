@@ -1,7 +1,13 @@
 #ifndef FRACTOL_H_
 # define FRACTOL_H_
 
-# include "./src/minilibx/mlx.h"
+// Right mlx includers for each OS (linux and macOS)
+# ifdef __linux__
+#  include "./src/minilibx/mlx.h"
+# else
+//#  include "./src/minilibx/mlx.h"
+# endif
+
 # include "./src/libft/src/libft.h"
 # include <stdio.h>
 
@@ -11,13 +17,10 @@
 
 /*
 ** DEF ASSETS
-*/
+**/
 # define P_ASSET "./Assets/Knight/knight.xpm"
 # define C_ASSET "./Assets/Collectable/key.xpm"
 
-
-
-//w 119 a 97 s 115 d 100 esc 65509
 enum key_pressed{
 	Esc = 65509,
 	Up = 119,
