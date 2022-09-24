@@ -23,17 +23,21 @@ SRCS		+= gen_grid.c gen_window.c check_file_extension.c
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
+DB_CFLAGS =	-Wall -Wextra -Werror -g
 
 
 # A way to make it work on both linux and macos (I hope so.)
 OS = $(shell uname)
 ifeq ($(OS), Linux)
 MLX_FLAGS =	-L$(MLX) -lXext -lX11
-else
+else # MacOS
 MLX_FLAGS =	-L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 endif
 
 all:		$(NAME)
+
+debug:
+	$(CC) $(DB_CFLAGS) $(MLX_FLAGS) $(SRCS) $(LIBFT) $(MLX) -o so_long
 
 $(LIBFT):
 		$(MAKE) -C $(LIBFT_PATH)

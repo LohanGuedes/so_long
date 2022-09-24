@@ -10,6 +10,7 @@
 
 # include "./src/libft/src/libft.h"
 # include <stdio.h>
+# include <fcntl.h>
 
 # define ERR_MSG_WRONG_NUM_ARG "So_long \033[31mERROR\e[0m: Wrong number of arguments\n"
 # define USAGE_MSG_EXEC "\033[32mUsage: ./so_long <path_to_map>.ber\e[0m\n"
