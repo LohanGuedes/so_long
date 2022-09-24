@@ -27,6 +27,27 @@ char *join(char *str1, char *str2)
 	return (final);
 }
 
+void	get_height_width(t_data *data)
+{
+	int height;
+
+	height = 0;
+	while(data->map.grid[height])
+			height++;
+	data->map.height = height;
+	data->map.width = ft_strlen((char *)(data->map.grid[0]));
+}
+
+void	populate_map_img_ptrs(t_data *data)
+{
+	int dummy;
+	data->map.floor = mlx_xpm_file_to_image(data->mlx, F_ASSET, &dummy, &dummy);
+	data->map.wall = mlx_xpm_file_to_image(data->mlx, W_ASSET, &dummy, &dummy);
+	data->map.door[0] = mlx_xpm_file_to_image(data->mlx, D_ASSET, &dummy, &dummy);
+	data->map.door[1] = mlx_xpm_file_to_image(data->mlx, D_O_ASSET, &dummy, &dummy);
+	data->map.coin = mlx_xpm_file_to_image(data->mlx, C_ASSET, &dummy, &dummy);
+}
+
 void	gen_grid(t_data *data, char *file_path)
 {
 	int	fd;
@@ -43,6 +64,9 @@ void	gen_grid(t_data *data, char *file_path)
 				break;
 		line = join(line, temp);
 	}
-	data->map_assets.grid = ft_split(line, '\n');
+
+	data->map.grid = ft_split(line, '\n');
+	get_height_width(data);
+	populate_map_img_ptrs(data);
 	free(line);
 }

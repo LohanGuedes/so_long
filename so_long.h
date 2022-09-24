@@ -17,10 +17,15 @@
 # define ERR_MSG_FILE "So_long \033[31mERROR\e[0m: wrong file extension. EXPECTED: .ber\n"
 
 /*
-** DEF ASSETS
+** DEF ASSETS PATHS
 **/
 # define P_ASSET "./Assets/Knight/knight.xpm"
 # define C_ASSET "./Assets/Collectable/key.xpm"
+# define F_ASSET "Assets/Tiles/floor_1.xpm"
+# define W_ASSET "Assets/Tiles/wall_1.xpm"
+# define D_ASSET "Assets/Tiles/Exit/door_closed.xpm"
+# define D_O_ASSET "Assets/Tiles/Exit/door_open.xpm"
+
 
 enum key_pressed{
 	Esc = 65509,
@@ -64,31 +69,24 @@ typedef struct s_enemie
 
 } t_enemie;
 
-typedef struct s_map_assets
+typedef struct s_map
 {
-	char **grid;
+	int	height;
+	int	width;
+	char	**grid;
 	void	*floor;
 	void	*door[2];
 	void	*wall;
+	void	*coin;
 
-} t_map_assets;
-
-typedef struct s_coin
-{
-	int		x;
-	int		y;
-	void	*img;
-
-} t_coin;
+} t_map;
 
 typedef struct s_data
 {
 	void *mlx;
 	t_window			window;
 	t_player			player;
-	t_enemie			enemie;
-	t_coin				coin;
-	t_map_assets	map_assets;
+	t_map			map;
 } t_data;
 
 /*
@@ -100,5 +98,6 @@ void	check_params(int argc, char *argv[]);
 void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);
 void	gen_grid(t_data *data, char *file_path);
+void	print_grid(t_data *data);
 
 #endif

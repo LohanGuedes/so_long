@@ -19,7 +19,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 MLX = $(MLX_PATH)/libmlx_Linux.a
 
 SRCS		+= so_long.c check_params.c  gen_player.c  movement_parser.c
-SRCS		+= gen_grid.c gen_window.c check_file_extension.c
+SRCS		+= gen_grid.c gen_window.c check_file_extension.c print_grid.c
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
@@ -59,5 +59,9 @@ fclean:		clean
 			@rm -rf $(MLX)
 
 re:			fclean all
+
+run: $(NAME)
+	./so_long map.ber
+
 
 .PHONY:		all clean fclean re
