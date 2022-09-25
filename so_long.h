@@ -99,5 +99,10 @@ void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);
 void	gen_grid(t_data *data, char *file_path);
 void	print_grid(t_data *data);
+void	print_wall(t_data *data, int x, int y);
+void	print_floor(t_data *data, int x, int y);
+void	print_player(t_data *data, int x, int y);
+void	print_exit(t_data *data, int x, int y);
+void	print_coin(t_data *data, int x, int y);
 
 #endif
