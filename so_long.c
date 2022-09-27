@@ -1,5 +1,4 @@
 #include "so_long.h"
-#include "src/libft/src/libft.h"
 
 
 int	main(int argc, char *argv[])

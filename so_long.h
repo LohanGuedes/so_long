@@ -16,7 +16,8 @@
 # define ERR_MSG_WRONG_NUM_ARG "So_long \033[31mERROR\e[0m: Wrong number of arguments\n"
 # define USAGE_MSG_EXEC "\033[32mUsage: ./so_long <path_to_map>.ber\e[0m\n"
 # define ERR_MSG_FILE "So_long \033[31mERROR\e[0m: wrong file extension. EXPECTED: .ber\n"
-# define ERR_MAP_NOT_RECTANGLE "\033[31mError\e[0m\n The map isn't an rectangle.\n"
+# define ERR_MAP_NOT_RECTANGLE "\033[31mError\e[0m\nThe map isn't an rectangle.\n"
+# define ERR_MAP_NOT_SURROUNDED "\033[31mError\e[0m\nThe map isn't surrounded by walls.\n"
 
 
 /*
