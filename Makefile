@@ -14,9 +14,9 @@ NAME = so_long
 
 LIBFT_PATH = ./src/libft
 
-SRCS		+= so_long.c check_params.c  gen_player.c  movement_parser.c
-SRCS		+= gen_grid.c gen_window.c check_file_extension.c print_grid.c
-SRCS		+= check_map.c print_utils.c
+SRCS		+= $(addprefix src/so_long.c check_params.c  gen_player.c  movement_parser.c)
+SRCS		+= $(addprefix src/gen_grid.c gen_window.c check_file_extension.c print_grid.c)
+SRCS		+= $(addprefix src/check_map.c print_utils.c)
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
