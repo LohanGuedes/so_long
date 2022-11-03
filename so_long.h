@@ -5,7 +5,7 @@
 # ifdef __linux__
 #  include "./src/minilibx/mlx.h"
 # else
-//#  include "./src/minilibx/mlx.h"
+#  include "./src/minilibx/mlx.h"
 # endif
 
 # include "./src/libft/src/libft.h"
@@ -20,6 +20,7 @@
 # define ERR_MAP_NOT_SURROUNDED "\033[31mError\e[0m\nThe map isn't surrounded by walls.\n"
 
 
+
 /*
 ** DEF ASSETS PATHS
 **/
@@ -31,7 +32,7 @@
 # define D_O_ASSET "Assets/Tiles/Exit/door_open.xpm"
 
 
-enum key_pressed{
+enum e_kpressed{
 	Esc = 65509,
 	Up = 119,
 	Left = 97,
