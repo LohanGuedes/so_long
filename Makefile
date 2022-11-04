@@ -33,9 +33,10 @@ ifeq ($(OS), Linux)
     #====================================================#
     #===-================DOWNLOADLIB=====================#
     #====================================================#
-    ifeq (, $(shell ls ./src/minilibx.tgz 2>/dev/null))   # Checks if file already exist for not downloading multiple times, and supress the error message
+    ifeq (, $(shell ls ./src/minilibx-linux 2>/dev/null))   # Checks if libfiles already exists for not downloading multiple times, and supress the error message
         $(shell curl https://projects.intra.42.fr/uploads/document/document/12389/minilibx-linux.tgz -o ./src/minilibx.tgz 2>/dev/null)     # Download the lib + Supress
         $(shell tar -xf ./src/minilibx.tgz -C ./src/ )                                                                                      # Extract it
+        $(shell rm -f ./src/minilibx.tgz)                                                                                      # Extract it
     endif
     #---------------------------------------------------#
     #--------------------MACOS-FLAGS--------------------#
@@ -52,9 +53,10 @@ ifeq ($(OS), Linux)
     #====================================================#
     #===-================DOWNLOADLIB=====================#
     #====================================================#
-    ifeq (, $(shell ls ./src/minilibx.tgz 2>/dev/null))   # Checks if file already exist for not downloading multiple times, and supress the error message.
+    ifeq (, $(shell ls ./src/minilibx_opengl_20191021 2>/dev/null))   ## Checks if file already exist for not downloading multiple times, and supress the error message.
         $(shell curl https://projects.intra.42.fr/uploads/document/document/12390/minilibx_opengl.tgz ./src/minilibx.tgz )      # Download the lib + Supress
         $(shell tar -xf ./src/minilibx.tgz -C ./src/ )                                                                          # Extract it
+        $(shell rm -f ./src/minilibx.tgz)                                                                                      # Extract it
     endif
 
     #---------------------------------------------------#
