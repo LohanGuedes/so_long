@@ -1,14 +1,14 @@
-#ifndef FRACTOL_H_
-# define FRACTOL_H_
+#ifndef SO_LONG_H_
+# define SO_LONG_H_
 
 // Right mlx includers for each OS (linux and macOS)
 # ifdef __linux__
-#  include "./src/minilibx/mlx.h"
+#  include "./minilibx-linux/mlx.h"
 # else
-//#  include "./src/minilibx/mlx.h"
+#  include "./src/minilibx/mlx.h"
 # endif
 
-# include "./src/libft/src/libft.h"
+# include "./libft/src/libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
