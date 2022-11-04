@@ -1,5 +1,4 @@
 #include "so_long.h"
-#include "src/libft/src/libft.h"
 
 char *join(char *str1, char *str2)
 {
