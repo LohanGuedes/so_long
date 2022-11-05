@@ -6,7 +6,7 @@ int	main(int argc, char *argv[])
 
 	check_params(argc, argv);
 
-	data = (t_data){0}; // This will assign 0 to each thing inside data
+	data = (t_data){0};
 
 	// Init mlx and get data for it.
 	data.mlx = mlx_init();
@@ -14,6 +14,7 @@ int	main(int argc, char *argv[])
 	// Generate Map Grid and populate images.
 	gen_grid(&data, argv[1]);
 
+	// Check the map
 	check_map(&data);
 
 	gen_player(&data, P_ASSET);
@@ -24,15 +25,12 @@ int	main(int argc, char *argv[])
 
 	// KeyHook for printing. since there's no animation that's the simplest way to make it. since we only have to
 	// update what's being displayed by the user everytime he presses a key.
-	/* mlx_key_hook(data.window.ptr, movement_parser, &data); */
+	mlx_key_hook(data.window.ptr, movement_parser, &data);
 
 	mlx_loop(data.mlx);
 	/* // Put frees here and then turn then into a function: */
 	/* free(data.mlx); */
 	/* free(data.window.ptr); */
 	/* free(data.player.img); */
-	/* for(int  i = 0; data.map.grid[i]; i++) */
-	/* 		free(data.map.grid[i]); */
-	/* free(data.map.grid); */
 	return 0;
 }

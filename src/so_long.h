@@ -19,11 +19,9 @@
 # define ERR_MAP_NOT_RECTANGLE "\033[31mError\e[0m\nThe map isn't an rectangle.\n"
 # define ERR_MAP_NOT_SURROUNDED "\033[31mError\e[0m\nThe map isn't surrounded by walls.\n"
 
-
-
 /*
 ** DEF ASSETS PATHS
-**/
+*/
 # define P_ASSET "./Assets/Knight/knight.xpm"
 # define C_ASSET "./Assets/Collectable/key.xpm"
 # define F_ASSET "Assets/Tiles/floor_1.xpm"
@@ -31,22 +29,30 @@
 # define D_ASSET "Assets/Tiles/Exit/door_closed.xpm"
 # define D_O_ASSET "Assets/Tiles/Exit/door_open.xpm"
 
+# ifdef __linux__
+	enum e_kpressed
+	{
+		Esc = 65509,
+		Up = 119,
+		Left = 97,
+		Down = 115,
+		Right = 100,
+		A_up = 119,
+		A_left = 97,
+		A_down = 115,
+		A_right = 100,
+	};
+# else
+	enum e_kpressed {
+		Sup
+	};
+# endif
 
-enum e_kpressed{
-	Esc = 65509,
-	Up = 119,
-	Left = 97,
-	Down = 115,
-	Right = 100,
-	A_up = 119,
-	A_left = 97,
-	A_down = 115,
-	A_right = 100,
-};
+
 
 /*
 ** Game Structs (Needed because of poorly coded minilibx).
-**/
+*/
 
 typedef struct s_window
 {
@@ -97,8 +103,8 @@ typedef struct s_data
 /*
 ** Utility functions
 **/
-int	check_file_extension(char *filename, char *extension);
-int	movement_parser(int keycode, t_data *data);
+int		check_file_extension(char *filename, char *extension);
+int		movement_parser(int keycode, t_data *data);
 void	check_params(int argc, char *argv[]);
 void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);
@@ -110,5 +116,8 @@ void	print_player(t_data *data, int x, int y);
 void	print_exit(t_data *data, int x, int y);
 void	print_coin(t_data *data, int x, int y);
 void	check_map(t_data *data);
+void	check_rectangle(t_data *data);
+void	check_surround(t_data *data);
+void	free_matrix(char **grid);
 
-#endif
+#endif //SO_LONG_H

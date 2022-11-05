@@ -70,3 +70,4 @@ void	gen_grid(t_data *data, char *file_path)
 	close(fd);
 	free(line);
 }
+

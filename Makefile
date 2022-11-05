@@ -16,7 +16,7 @@ LIBFT_PATH = ./src/libft
 
 SRCS		+= $(addprefix src/, so_long.c check_params.c  gen_player.c  movement_parser.c)
 SRCS		+= $(addprefix src/, gen_grid.c gen_window.c check_file_extension.c print_grid.c)
-SRCS		+= $(addprefix src/, check_map.c print_utils.c)
+SRCS		+= $(addprefix src/, check_map_utils.c check_map.c print_utils.c)
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
@@ -44,6 +44,7 @@ ifeq ($(OS), Linux)
     LIBFT = $(LIBFT_PATH)/libft.a
     MLX = $(MLX_PATH)/libmlx.a
     MLX_FLAGS = -L$(MLX) -lXext -lX11
+    # TODO - May be breaking make rule $(all).
 
     else # MacOS... If you run this on windows it's your own problem. At least use wsl you c*nt
     #----------------------------------------------------#
@@ -91,7 +92,7 @@ clean:
 fclean:		clean
 			@$(MAKE) -C $(LIBFT_PATH) fclean
 			@$(MAKE) -C $(MLX_PATH) clean
-			@rm -rf fractol
+			@rm -rf so_long
 			@rm -rf $(MLX)
 
 re:			fclean all
