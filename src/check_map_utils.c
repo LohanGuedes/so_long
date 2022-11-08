@@ -24,7 +24,7 @@ void	check_rectangle(t_data *data)
 	{
 		if((int)ft_strlen(data->map.grid[i]) != first_len)
 		{
-			write(2, ERR_MAP_NOT_RECTANGLE, ft_strlen(ERR_MAP_NOT_RECTANGLE));
+			write(2, ERR_MAP_NOT_REC, ft_strlen(ERR_MAP_NOT_REC));
 			free_matrix(data->map.grid);
 			exit(1);
 		}
@@ -57,7 +57,7 @@ void	check_surround(t_data *data)
 	line_num--;
 	if(!(all_ones(data->map.grid[line_num]) || all_ones(data->map.grid[0])))
 	{
-			write(2, ERR_MAP_NOT_SURROUNDED, ft_strlen(ERR_MAP_NOT_SURROUNDED));
+			write(2, ERR_MAP_NOT_SUR, ft_strlen(ERR_MAP_NOT_SUR));
 			free_matrix(data->map.grid);
 			exit(1);
 	}
@@ -66,7 +66,7 @@ void	check_surround(t_data *data)
 		if(data->map.grid[line_num][line_len-1] != '1'
 			 || data->map.grid[line_num][0] != '1')
 		{
-			write(2, ERR_MAP_NOT_SURROUNDED, ft_strlen(ERR_MAP_NOT_SURROUNDED));
+			write(2, ERR_MAP_NOT_SUR, ft_strlen(ERR_MAP_NOT_SUR));
 			free_matrix(data->map.grid);
 			exit(1);
 		}

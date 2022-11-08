@@ -16,7 +16,7 @@ LIBFT_PATH = ./src/libft
 
 SRCS		+= $(addprefix src/, so_long.c check_params.c  gen_player.c  movement_parser.c)
 SRCS		+= $(addprefix src/, gen_grid.c gen_window.c check_file_extension.c print_grid.c)
-SRCS		+= $(addprefix src/, check_map_utils.c check_map.c print_utils.c)
+SRCS		+= $(addprefix src/, check_map_utils.c check_map_utils_1.c check_map.c print_utils.c)
 
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
@@ -38,9 +38,6 @@ ifeq ($(OS), Linux)
         $(shell tar -xf ./src/minilibx.tgz -C ./src/ )                                                                                      # Extract it
         $(shell rm -f ./src/minilibx.tgz)                                                                                      # Extract it
     endif
-    #---------------------------------------------------#
-    #--------------------MACOS-FLAGS--------------------#
-    #---------------------------------------------------#
     LIBFT = $(LIBFT_PATH)/libft.a
     MLX = $(MLX_PATH)/libmlx.a
     MLX_FLAGS = -L$(MLX) -lXext -lX11
@@ -50,12 +47,12 @@ ifeq ($(OS), Linux)
     #----------------------------------------------------#
     #--------------------$(MACOS)------------------------#
     #----------------------------------------------------#
-    MLX_PATH = ./src/minilibx
+    MLX_PATH = ./src/minilibx_opengl_20191021
     #====================================================#
     #===-================DOWNLOADLIB=====================#
     #====================================================#
     ifeq (, $(shell ls ./src/minilibx_opengl_20191021 2>/dev/null))   ## Checks if file already exist for not downloading multiple times, and supress the error message.
-        $(shell curl https://projects.intra.42.fr/uploads/document/document/12390/minilibx_opengl.tgz ./src/minilibx.tgz )      # Download the lib + Supress
+        $(shell curl https://projects.intra.42.fr/uploads/document/document/12390/minilibx_opengl.tgz -o ./src/minilibx.tgz )      # Download the lib + Supress
         $(shell tar -xf ./src/minilibx.tgz -C ./src/ )                                                                          # Extract it
         $(shell rm -f ./src/minilibx.tgz)                                                                                      # Extract it
     endif
@@ -65,7 +62,7 @@ ifeq ($(OS), Linux)
     #---------------------------------------------------#
     LIBFT = $(LIBFT_PATH)/libft.a
     MLX = $(MLX_PATH)/libmlx.a
-    MLX_FLAGS = -L$(MLX) -lmlx -framework OpenGL -framework AppKit
+    MLX_FLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 endif
 #----------------------------------------------------#
 #---------------Alright, good to go.-----------------#
