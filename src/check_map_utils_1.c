@@ -1,3 +1,4 @@
+#include "libft/src/libft.h"
 #include "so_long.h"
 
 int	n_collectables(t_data *data)
@@ -36,15 +37,13 @@ void	throw_quit(t_data *data, char *err_msg, int exit_code)
 		mlx_destroy_image(data->mlx, data->map.floor);
 	if(data->map.wall)
 		mlx_destroy_image(data->mlx, data->map.wall);
-	if(data->map.door[0])
-		mlx_destroy_image(data->mlx, data->map.door[0]);
-	if(data->map.door[1])
-		mlx_destroy_image(data->mlx, data->map.door[1]);
+	if(data->map.door)
+		mlx_destroy_image(data->mlx, data->map.door);
 	write(2, err_msg, ft_strlen(err_msg));
 	exit(exit_code);
 }
 
-int	validate_content(t_data *data)
+void	validate_content(t_data *data)
 {
 	int	a_index;
 	int	b_index;
@@ -61,19 +60,14 @@ int	validate_content(t_data *data)
 		{
 			if(data->map.grid[a_index][b_index] == 'P')
 			{
-				if(player)
-					throw_quit(data, ERR_MAP_P_NUM, 1);
+				data->player.x = b_index;
+				data->player.y = a_index;
 				player++;
 			}
 			if(data->map.grid[a_index][b_index] == 'E')
-			{
-				if(exit)
-					throw_quit(data, ERR_MAP_E_NUM, 1);
 				exit++;
-			}
 			b_index++;
 		}
 		a_index++;
 	}
-	return (1);
 }

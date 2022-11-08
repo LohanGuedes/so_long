@@ -42,8 +42,7 @@ void	populate_map_img_ptrs(t_data *data)
 	int dummy;
 	data->map.floor = mlx_xpm_file_to_image(data->mlx, F_ASSET, &dummy, &dummy);
 	data->map.wall = mlx_xpm_file_to_image(data->mlx, W_ASSET, &dummy, &dummy);
-	data->map.door[0] = mlx_xpm_file_to_image(data->mlx, D_ASSET, &dummy, &dummy);
-	data->map.door[1] = mlx_xpm_file_to_image(data->mlx, D_O_ASSET, &dummy, &dummy);
+	data->map.door = mlx_xpm_file_to_image(data->mlx, D_ASSET, &dummy, &dummy);
 	data->map.coin = mlx_xpm_file_to_image(data->mlx, C_ASSET, &dummy, &dummy);
 }
 

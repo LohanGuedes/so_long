@@ -32,31 +32,25 @@
 # define D_O_ASSET "Assets/Tiles/Exit/door_open.xpm"
 
 # ifdef __linux__
-	enum e_kpressed
-	{
-		Esc = 65509,
-		Up = 119,
-		Left = 97,
-		Down = 115,
-		Right = 100,
-		A_up = 119,
-		A_left = 97,
-		A_down = 115,
-		A_right = 100,
-	};
+#  define K_ESC 65509
+#  define K_UP 119
+#  define K_DOWN 115
+#  define K_LEFT 97
+#  define K_RIGHT 100
+#  define K_A_UP 119
+#  define K_A_DOWN 115
+#  define K_A_LEFT 97
+#  define K_A_RIGHT 100
 # else
-	enum e_kpressed
-	{
-		Esc = 53,
-		Up = 13,
-		Left = 0,
-		Down = 1,
-		Right = 2,
-		A_up = 126,
-		A_left = 123,
-		A_down = 125,
-		A_right = 124,
-	};
+#  define K_ESC 53
+#  define K_UP 13
+#  define K_LEFT 0
+#  define K_DOWN 1
+#  define K_RIGHT 2
+#  define K_A_UP 126
+#  define K_A_LEFT 123
+#  define K_A_DOWN 125
+#  define K_A_RIGHT 124
 # endif
 
 /*
@@ -95,7 +89,7 @@ typedef struct s_map
 	int	width;
 	char	**grid;
 	void	*floor;
-	void	*door[2];
+	void	*door;
 	void	*wall;
 	void	*coin;
 	int	coin_count;
@@ -131,7 +125,7 @@ void	check_rectangle(t_data *data);
 void	check_surround(t_data *data);
 void	free_matrix(char **grid);
 void	throw_quit(t_data *data, char *err_msg, int exit_code);
+void		validate_content(t_data *data);
 int		n_collectables(t_data *data);
-int		validate_content(t_data *data);
 
 #endif //SO_LONG_H

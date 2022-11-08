@@ -23,7 +23,7 @@ void	print_exit(t_data *data, int x, int y)
 {
 	print_floor(data, x, y);
 	mlx_put_image_to_window(data->mlx, data->window.ptr,
-													data->map.door[0], x * 64, y * 64);
+													data->map.door, x * 64, y * 64);
 }
 
 void	print_coin(t_data *data, int x, int y)
