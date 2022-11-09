@@ -68,6 +68,7 @@ endif
 #---------------Alright, good to go.-----------------#
 #----------------------------------------------------#
 
+
 all:		$(NAME)
 
 debug:
@@ -82,6 +83,7 @@ $(MLX):
 $(NAME):	$(LIBFT) $(MLX)
 			$(CC) $(CFLAGS) $(MLX_FLAGS) $(SRCS) $(LIBFT) $(MLX) -o so_long
 
+
 clean:
 			@$(MAKE) -C $(LIBFT_PATH) clean
 			@$(MAKE) -C $(MLX_PATH) clean
@@ -95,6 +97,6 @@ fclean:		clean
 re:			fclean all
 
 run: $(NAME)
-	./so_long Maps/map.ber
+	./$(NAME) Maps/map.ber
 
 .PHONY:		all clean fclean re

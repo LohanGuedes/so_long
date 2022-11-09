@@ -3,7 +3,6 @@
 
 int	movement_parser(int keycode, t_data *data)
 {
-	ft_printf("%i\n", keycode);
 	if (keycode == K_UP || keycode == K_A_UP)
 		move_player_up(data);
 	else if(keycode == K_DOWN || keycode == K_A_DOWN)

@@ -56,7 +56,6 @@
 /*
 ** Game Structs (Needed because of poorly coded minilibx).
 */
-
 typedef struct s_window
 {
 	void	*ptr;
@@ -106,27 +105,35 @@ typedef struct s_data
 
 /*
 ** Utility functions
-**/
-
+*/
 int		check_file_extension(char *filename, char *extension);
 int		movement_parser(int keycode, t_data *data);
 void	check_params(int argc, char *argv[]);
 void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);
 void	gen_grid(t_data *data, char *file_path);
+
+/*
+** Display and graphics
+*/
 void	print_grid(t_data *data);
 void	print_wall(t_data *data, int x, int y);
 void	print_floor(t_data *data, int x, int y);
 void	print_player(t_data *data, int x, int y);
 void	print_exit(t_data *data, int x, int y);
 void	print_coin(t_data *data, int x, int y);
+
 void	check_map(t_data *data);
 void	check_rectangle(t_data *data);
 void	check_surround(t_data *data);
-void	free_matrix(char **grid);
-void	throw_quit(t_data *data, char *err_msg, int exit_code);
 void		validate_content(t_data *data);
 int		n_collectables(t_data *data);
+
+/*
+** Freeing Utilities
+*/
+void	free_matrix(char **grid);
+void	throw_quit(t_data *data, char *err_msg, int exit_code);
 
 /*
 ** Player Manipulation movement
