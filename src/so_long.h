@@ -37,10 +37,10 @@
 #  define K_DOWN 115
 #  define K_LEFT 97
 #  define K_RIGHT 100
-#  define K_A_UP 119
-#  define K_A_DOWN 115
-#  define K_A_LEFT 97
-#  define K_A_RIGHT 100
+#  define K_A_UP 65362
+#  define K_A_DOWN 65364
+#  define K_A_LEFT 65361
+#  define K_A_RIGHT 65363
 # else
 #  define K_ESC 53
 #  define K_UP 13
@@ -127,5 +127,13 @@ void	free_matrix(char **grid);
 void	throw_quit(t_data *data, char *err_msg, int exit_code);
 void		validate_content(t_data *data);
 int		n_collectables(t_data *data);
+
+/*
+** Player Manipulation movement
+*/
+void	move_player_up(t_data *data);
+void	move_player_down(t_data *data);
+void	move_player_left(t_data *data);
+void	move_player_right(t_data *data);
 
 #endif //SO_LONG_H

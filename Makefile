@@ -95,6 +95,6 @@ fclean:		clean
 re:			fclean all
 
 run: $(NAME)
-	./so_long map.ber
+	./so_long Maps/map.ber
 
 .PHONY:		all clean fclean re
