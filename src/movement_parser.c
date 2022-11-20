@@ -11,7 +11,6 @@ int	movement_parser(int keycode, t_data *data)
 		move_player_left(data);
 	else if(keycode == K_RIGHT || keycode == K_A_RIGHT)
 		move_player_right(data);
-
 	if(keycode == K_ESC)
 		throw_quit(data, "", 0);
 	mlx_clear_window(data->mlx, data->window.ptr);
@@ -19,10 +18,11 @@ int	movement_parser(int keycode, t_data *data)
 	return (1);
 }
 
+
 void	move_player_up(t_data *data)
 {
-	if (data->map.grid[data->player.y - 1][data->player.x]
-		== 'E' && data->map.coin_count == 0)
+	if (data->map.grid[data->player.y - 1][data->player.x] == 'E'
+		&& data->map.coin_count == 0)
 	{
 		data->map.grid[data->player.y][data->player.x] = '0';
 		data->map.grid[data->player.y - 1][data->player.x] = 'P';

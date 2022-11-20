@@ -29,6 +29,8 @@ void	throw_quit(t_data *data, char *err_msg, int exit_code)
 {
 	if(data->map.grid)
 		free_matrix(data->map.grid);
+	if(data->map.grid_cpy)
+		free_matrix(data->map.grid_cpy);
 	if(data->window.ptr)
 		mlx_destroy_window(data->mlx, data->window.ptr);
 	if(data->player.img)

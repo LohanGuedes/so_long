@@ -62,8 +62,8 @@ void	gen_grid(t_data *data, char *file_path)
 				break;
 		line = join(line, temp);
 	}
-
 	data->map.grid = ft_split(line, '\n');
+	data->map.grid_cpy = ft_split(line, '\n');
 	get_height_width(data);
 	populate_map_img_ptrs(data);
 	close(fd);

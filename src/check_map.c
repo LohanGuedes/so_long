@@ -7,5 +7,5 @@ void	check_map(t_data *data)
 	check_surround(data);
 	data->map.coin_count = n_collectables(data);
 	validate_content(data);// Last time
-	// TODO Validate PATH
+	validate_path(data);
 }

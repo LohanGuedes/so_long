@@ -1,10 +1,10 @@
 #ifndef SO_LONG_H_
 # define SO_LONG_H_
 
-// Right mlx includers for each OS (linux and macOS)
+// Right mlx includers for each OS (linux and macOS) - Thx lfads
 # ifdef __linux__
 #  include "./minilibx-linux/mlx.h"
-# else /* This is intended to run on Linux or MacOS! */
+# else /* This is intended to run on Linux or MacOS! If you use windows F you :) */
 #  include "./minilibx_opengl_20191021/mlx.h"
 # endif
 
@@ -21,6 +21,7 @@
 # define ERR_MAP_NO_COL "\033[31mError\e[0m\n No Collectable found.\n"
 # define ERR_MAP_P_NUM "\033[31mError\e[0m\n More than 1 'P' on map.\n"
 # define ERR_MAP_E_NUM "\033[31mError\e[0m\n More than 1 'E' on map.\n"
+# define ERR_V_P "\033[31mError\e[0m\n There is no valid path to coin/exit.\n"
 /*
 ** DEF ASSETS PATHS
 */
@@ -54,7 +55,8 @@
 # endif
 
 /*
-** Game Structs (Needed because of poorly coded minilibx).
+** Game Structs for t_data.
+** Needed because of poorly coded minilibx.
 */
 typedef struct s_window
 {
@@ -87,6 +89,7 @@ typedef struct s_map
 	int	height;
 	int	width;
 	char	**grid;
+	char	**grid_cpy;
 	void	*floor;
 	void	*door;
 	void	*wall;
@@ -112,6 +115,8 @@ void	check_params(int argc, char *argv[]);
 void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);
 void	gen_grid(t_data *data, char *file_path);
+void	free_matrix(char **grid);
+void	throw_quit(t_data *data, char *err_msg, int exit_code);
 
 /*
 ** Display and graphics
@@ -126,14 +131,9 @@ void	print_coin(t_data *data, int x, int y);
 void	check_map(t_data *data);
 void	check_rectangle(t_data *data);
 void	check_surround(t_data *data);
-void		validate_content(t_data *data);
+void	validate_content(t_data *data);
+void	validate_path(t_data *data);
 int		n_collectables(t_data *data);
-
-/*
-** Freeing Utilities
-*/
-void	free_matrix(char **grid);
-void	throw_quit(t_data *data, char *err_msg, int exit_code);
 
 /*
 ** Player Manipulation movement
