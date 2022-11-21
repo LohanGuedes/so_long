@@ -113,6 +113,7 @@ typedef struct s_data
 */
 int		check_file_extension(char *filename, char *extension);
 int		movement_parser(int keycode, t_data *data);
+void	check_invalid_chars(t_data *data, char *path);
 void	check_params(int argc, char *argv[]);
 void	gen_player(t_data *data, char *image_path);
 void	gen_window(t_data *data, int width, int height, char *title);

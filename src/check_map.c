@@ -1,4 +1,3 @@
-#include "libft/src/libft.h"
 #include "so_long.h"
 
 void	check_map(t_data *data)

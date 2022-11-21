@@ -73,3 +73,29 @@ void	validate_content(t_data *data)
 		a_index++;
 	}
 }
+
+void	check_invalid_chars(t_data *data, char *path)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map.grid[i])
+	{
+		j = 0;
+		while (data->map.grid[i][j])
+		{
+			if (!ft_strchr("PEC01", data->map.grid[i][j]))
+			{
+				ft_printf("%s :%d:%d ", path, i, j);
+				throw_quit(
+					data,
+					"Invalid character found when validating the map\n",
+					2);
+			}
+			j++;
+		}
+		i++;
+	}
+	return ;
+}
