@@ -100,7 +100,7 @@ void	move_player_right(t_data *data)
 	if (data->map.grid[data->player.y][data->player.x + 1] != '1' &&
 		data->map.grid[data->player.y][data->player.x + 1] != 'E')
 	{
-		if (data->map.grid[data->player.y][data->player.x - 1] == 'C')
+		if (data->map.grid[data->player.y][data->player.x + 1] == 'C')
 			data->map.coin_count--;
 		data->map.grid[data->player.y][data->player.x] = '0';
 		data->map.grid[data->player.y][data->player.x + 1] = 'P';
