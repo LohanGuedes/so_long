@@ -3,7 +3,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_data data;
+	t_data	data;
 
 	check_params(argc, argv);
 	data = (t_data){0};
@@ -15,5 +15,5 @@ int	main(int argc, char *argv[])
 	print_grid(&data);
 	mlx_key_hook(data.window.ptr, movement_parser, &data);
 	mlx_loop(data.mlx);
-	return 0;
+	return (0);
 }

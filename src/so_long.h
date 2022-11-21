@@ -1,10 +1,9 @@
-#ifndef SO_LONG_H_
-# define SO_LONG_H_
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-// Right mlx includers for each OS (linux and macOS) - Thx lfads
 # ifdef __linux__
 #  include "./minilibx-linux/mlx.h"
-# else /* This is intended to run on Linux or MacOS! If you use windows F you :) */
+# else /* This is intended to run on Linux or MacOS! */
 #  include "./minilibx_opengl_20191021/mlx.h"
 # endif
 
@@ -12,16 +11,19 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-/* Error messages */
-# define ERR_MSG_NUM_ARG "So_long\033[31mERROR\e[0m: Wrong num of arguments\n"
+/*
+** Error messages
+*/
 # define USAGE_MSG_EXEC "\033[32mUsage: ./so_long <path_to_map>.ber\e[0m\n"
-# define ERR_MSG_FILE "So_long\033[31mERROR\e[0m: Wrong file extension.\n"
+# define ERR_MSG_NUM_ARG "So_long \033[31mERROR\e[0m: Wrong num of arguments\n"
+# define ERR_MSG_FILE "So_long \033[31mERROR\e[0m: Wrong file extension.\n"
 # define ERR_MAP_NOT_REC "\033[31mError\e[0m\n Not a rectangle.\n"
 # define ERR_MAP_NOT_SUR "\033[31mError\e[0m\n Not surrounded by walls.\n"
 # define ERR_MAP_NO_COL "\033[31mError\e[0m\n No Collectable found.\n"
 # define ERR_MAP_P_NUM "\033[31mError\e[0m\n More than 1 'P' on map.\n"
 # define ERR_MAP_E_NUM "\033[31mError\e[0m\n More than 1 'E' on map.\n"
 # define ERR_V_P "\033[31mError\e[0m\n There is no valid path to coin/exit.\n"
+
 /*
 ** DEF ASSETS PATHS
 */
@@ -61,11 +63,11 @@
 typedef struct s_window
 {
 	void	*ptr;
-	char*	title;
-	int	height;
-	int	width;
+	char	*title;
+	int		height;
+	int		width;
 
-} t_window;
+}				t_window;
 
 typedef struct s_player
 {
@@ -74,7 +76,7 @@ typedef struct s_player
 	int		moves;
 	void	*img;
 
-} t_player;
+}				t_player;
 
 typedef struct s_enemie
 {
@@ -82,29 +84,29 @@ typedef struct s_enemie
 	int		y;
 	void	*img;
 
-} t_enemie;
+}				t_enemie;
 
 typedef struct s_map
 {
-	int	height;
-	int	width;
 	char	**grid;
 	char	**grid_cpy;
 	void	*floor;
 	void	*door;
 	void	*wall;
 	void	*coin;
-	int	coin_count;
+	int		height;
+	int		width;
+	int		coin_count;
 
-} t_map;
+}				t_map;
 
 typedef struct s_data
 {
-	void *mlx;
+	void				*mlx;
 	t_window			window;
 	t_player			player;
-	t_map			map;
-} t_data;
+	t_map				map;
+}				t_data;
 
 /*
 ** Utility functions

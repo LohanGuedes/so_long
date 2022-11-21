@@ -9,37 +9,37 @@ int	n_collectables(t_data *data)
 
 	n_col = 0;
 	a_index = 0;
-	while(data->map.grid[a_index])
+	while (data->map.grid[a_index])
 	{
 		b_index = 0;
-		while(data->map.grid[a_index][b_index])
+		while (data->map.grid[a_index][b_index])
 		{
-			if(data->map.grid[a_index][b_index] == 'C')
+			if (data->map.grid[a_index][b_index] == 'C')
 				n_col++;
 			b_index++;
 		}
 		a_index++;
 	}
-	if(n_col == 0)
+	if (n_col == 0)
 		throw_quit(data, ERR_MAP_NO_COL, 1);
 	return (n_col);
 }
 
 void	throw_quit(t_data *data, char *err_msg, int exit_code)
 {
-	if(data->map.grid)
+	if (data->map.grid)
 		free_matrix(data->map.grid);
-	if(data->map.grid_cpy)
+	if (data->map.grid_cpy)
 		free_matrix(data->map.grid_cpy);
-	if(data->window.ptr)
+	if (data->window.ptr)
 		mlx_destroy_window(data->mlx, data->window.ptr);
-	if(data->player.img)
+	if (data->player.img)
 		mlx_destroy_image(data->mlx, data->player.img);
-	if(data->map.floor)
+	if (data->map.floor)
 		mlx_destroy_image(data->mlx, data->map.floor);
-	if(data->map.wall)
+	if (data->map.wall)
 		mlx_destroy_image(data->mlx, data->map.wall);
-	if(data->map.door)
+	if (data->map.door)
 		mlx_destroy_image(data->mlx, data->map.door);
 	write(2, err_msg, ft_strlen(err_msg));
 	exit(exit_code);
@@ -55,18 +55,18 @@ void	validate_content(t_data *data)
 	a_index = 0;
 	player = 0;
 	exit = 0;
-	while(data->map.grid[a_index])
+	while (data->map.grid[a_index])
 	{
 		b_index = 0;
-		while(data->map.grid[a_index][b_index])
+		while (data->map.grid[a_index][b_index])
 		{
-			if(data->map.grid[a_index][b_index] == 'P')
+			if (data->map.grid[a_index][b_index] == 'P')
 			{
 				data->player.x = b_index;
 				data->player.y = a_index;
 				player++;
 			}
-			if(data->map.grid[a_index][b_index] == 'E')
+			if (data->map.grid[a_index][b_index] == 'E')
 				exit++;
 			b_index++;
 		}

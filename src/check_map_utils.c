@@ -2,13 +2,13 @@
 
 void	free_matrix(char **grid)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(grid[i])
+	while (grid[i])
 	{
-			free(grid[i]);
-			i++;
+		free(grid[i]);
+		i++;
 	}
 	free(grid);
 }
@@ -20,9 +20,9 @@ void	check_rectangle(t_data *data)
 
 	i = 1;
 	first_len = (int)ft_strlen(data->map.grid[0]);
-	while(data->map.grid[i])
+	while (data->map.grid[i])
 	{
-		if((int)ft_strlen(data->map.grid[i]) != first_len)
+		if ((int)ft_strlen(data->map.grid[i]) != first_len)
 		{
 			write(2, ERR_MAP_NOT_REC, ft_strlen(ERR_MAP_NOT_REC));
 			free_matrix(data->map.grid);
@@ -34,12 +34,12 @@ void	check_rectangle(t_data *data)
 
 int	all_ones(char *str)
 {
-	int offset;
+	int	offset;
 
 	offset = 0;
 	while (str[offset])
 	{
-		if(str[offset] != '1')
+		if (str[offset] != '1')
 			return (0);
 		offset++;
 	}
@@ -55,16 +55,16 @@ void	check_surround(t_data *data)
 	line_num = 0;
 		line_num++;
 	line_num--;
-	if(!(all_ones(data->map.grid[line_num]) || all_ones(data->map.grid[0])))
+	if (!(all_ones(data->map.grid[line_num]) || all_ones(data->map.grid[0])))
 	{
-			write(2, ERR_MAP_NOT_SUR, ft_strlen(ERR_MAP_NOT_SUR));
-			free_matrix(data->map.grid);
-			exit(1);
+		write(2, ERR_MAP_NOT_SUR, ft_strlen(ERR_MAP_NOT_SUR));
+		free_matrix(data->map.grid);
+		exit(1);
 	}
 	while (line_num-- > 0)
 	{
-		if(data->map.grid[line_num][line_len-1] != '1'
-			 || data->map.grid[line_num][0] != '1')
+		if (data->map.grid[line_num][line_len - 1] != '1'
+			|| data->map.grid[line_num][0] != '1')
 		{
 			write(2, ERR_MAP_NOT_SUR, ft_strlen(ERR_MAP_NOT_SUR));
 			free_matrix(data->map.grid);
