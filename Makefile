@@ -6,7 +6,7 @@
 #    By: lguedes <lguedes@student.42.rio>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 20:21:22 by lguedes           #+#    #+#              #
-#    Updated: 2022/08/24 22:18:17 by lguedes          ###   ########.fr        #
+#    Updated: 2022/11/23 15:25:14 by lguedes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(LIBFT):
 $(MLX):
 		$(MAKE) -C $(MLX_PATH)
 
-$(NAME):	$(LIBFT) $(MLX)
+$(NAME):	$(LIBFT) $(MLX) $(SRCS)
 			$(CC) $(CFLAGS) $(MLX_FLAGS) $(SRCS) $(LIBFT) $(MLX) -o so_long
 
 
