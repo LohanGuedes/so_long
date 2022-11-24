@@ -1,9 +1,8 @@
 #include "so_long.h"
-#include "libft/src/libft.h"
 
 int	x_quit_game(t_data *data)
 {
-	if(data)
+	if (data)
 		throw_quit(data, "", 0);
 	return (0);
 }

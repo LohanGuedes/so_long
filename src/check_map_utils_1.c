@@ -49,11 +49,9 @@ void	validate_content(t_data *data)
 {
 	int	a_index;
 	int	b_index;
-	int	player;
 	int	exit;
 
 	a_index = 0;
-	player = 0;
 	exit = 0;
 	while (data->map.grid[a_index])
 	{
@@ -64,7 +62,7 @@ void	validate_content(t_data *data)
 			{
 				data->player.x = b_index;
 				data->player.y = a_index;
-				player++;
+				data->map.player_count++;
 			}
 			if (data->map.grid[a_index][b_index] == 'E')
 				exit++;

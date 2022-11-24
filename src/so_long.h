@@ -97,6 +97,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		coin_count;
+	int		player_count;
 
 }				t_map;
 
