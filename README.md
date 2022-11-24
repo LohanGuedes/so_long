@@ -3,7 +3,7 @@ So_long is a simple little game that I made in 42|RIO.
 It's my first graphic project in C or in any other language.
 
 ## Goal
-I believe that the goal of this project, was to imagine how to treat
+I believe that the goal of this project, was learn how to treat
 bugs, how to work with libraries,  read documentation and the most
 important thing: how to use GDB/Recursion.
 
