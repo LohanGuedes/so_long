@@ -53,6 +53,7 @@ void	check_surround(t_data *data)
 
 	line_len = ft_strlen(data->map.grid[0]);
 	line_num = 0;
+	while(data->map.grid[line_num])
 		line_num++;
 	line_num--;
 	if (!(all_ones(data->map.grid[line_num]) || all_ones(data->map.grid[0])))

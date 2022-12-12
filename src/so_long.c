@@ -1,6 +1,7 @@
 #include "so_long.h"
 
 int	x_quit_game(t_data *data)
+/* Quits the game if the X button is pressed. */
 {
 	if (data)
 		throw_quit(data, "", 0);
